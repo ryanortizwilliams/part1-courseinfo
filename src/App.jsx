@@ -28,6 +28,21 @@ const Content = (props) => {
 };
 
 // Total
+const Total = (props) => {
+  let sum = 0;
+
+  for (const part in props.parts) {
+    console.log(part);
+    sum += props.parts[part].exercises;
+  }
+
+  return (
+    <>
+      <p>Number of exercises {sum}</p>
+    </>
+  );
+};
+
 function App() {
   const course = "Half Stack application development";
   const parts = [
@@ -46,7 +61,7 @@ function App() {
     <div>
       <Header course={course} />
       <Content parts={parts} />
-      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+      <Total parts={parts} />
     </div>
   );
 }
